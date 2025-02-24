@@ -61,5 +61,4 @@ routes.patch("/updateuser/:userId", async (req, res) => {
     console.log("something went wrong" + error.message);
   }
 });
-
 module.exports = { routes };

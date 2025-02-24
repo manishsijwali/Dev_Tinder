@@ -1,5 +1,6 @@
-
 const express = require("express");
+const User = require("../model/user");
+const bcrypt = require("bcrypt");
 const adminAuth = require("../middlewares/auth");
 const validationEditData = require("../utils/validation");
 
@@ -27,6 +28,19 @@ profileRouter.patch("/profile/edit", adminAuth, (req, res) => {
       messsgae: `${LoggedInUser.firstName}, your profile is updated successfully`,
       data: { LoggedInUser },
     });
+  } catch (error) {
+    res.status(400).send(error + "ERROR");
+  }
+});
+
+profileRouter.patch("/profile/forgotpassword", adminAuth, async (req, res) => {
+  try {
+    const user = req.user;
+    const { password } = req.body;
+    const hashedPassword = await bcrypt.hash(password, 10);
+    user.password = hashedPassword;
+    await user.save();
+    res.send("Password updated successfully");
   } catch (error) {
     res.status(400).send(error + "ERROR");
   }

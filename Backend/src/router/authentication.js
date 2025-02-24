@@ -1,4 +1,4 @@
-require("dotenv").config()
+require("dotenv").config();
 const express = require("express");
 const User = require("../model/user");
 const bcrypt = require("bcrypt");
@@ -19,7 +19,6 @@ authRouter.post("/signup", async (req, res) => {
 
     const { firstName, lastName, email, password } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
-  
 
     const user = new User({
       firstName,
@@ -61,7 +60,9 @@ authRouter.post("/login", async (req, res) => {
 });
 
 authRouter.post("/logout", (req, res) => {
-  res.clearCookie("token");
+  res.clearCookie("token", null, {
+    expires: new Date(Date.now()),
+  });
   res.send("logout successfully");
 });
 module.exports = authRouter;
