@@ -11,12 +11,20 @@ const validationSignUpData = (req) => {
   }
 };
 
-
-const validationEditData = (req) =>{
-  const AllowedFields = ["firstName","lastName","age","gender","email","photoUrl","skills","about"]
-  const isEditAllowed = Object.keys(req.body).every((feild)=>{
-    AllowedFields.includes(feild)
-  })
+const validationEditData = (req) => {
+  const AllowedFields = [
+    "firstName",
+    "lastName",
+    "age",
+    "gender",
+    "email",
+    "photoUrl",
+    "skills",
+    "about",
+  ];
+  const isEditAllowed = Object.keys(req.body).every((feild) => {
+    AllowedFields.includes(feild);
+  });
   return isEditAllowed;
-}
-module.exports = {validationSignUpData,validationEditData}
+};
+module.exports = { validationSignUpData, validationEditData };
