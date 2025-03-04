@@ -40,7 +40,7 @@ routes.delete("/deleteuser/:userId", async (req, res) => {
 routes.patch("/updateuser/:userId", async (req, res) => {
   const userId = req.params?.userId;
   const data = req.body;
-//   console.log(data);
+  //   console.log(data);
 
   try {
     const ALLOWED_UPDATES = ["photoUrl", "about", "gender", "age", "skills"];

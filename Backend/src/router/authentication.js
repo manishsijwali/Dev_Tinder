@@ -8,7 +8,6 @@ const { validationSignUpData } = require("../utils/validation");
 const authRouter = express.Router();
 
 //for signup
-
 authRouter.post("/signup", async (req, res) => {
   //validation of data
 
