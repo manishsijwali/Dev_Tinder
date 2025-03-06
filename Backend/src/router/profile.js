@@ -33,7 +33,7 @@ profileRouter.patch("/profile/edit", adminAuth, (req, res) => {
   }
 });
 
-profileRouter.patch("/profile/forgotpassword", adminAuth, async (req, res) => {
+profileRouter.patch("/profile/updatepassword", adminAuth, async (req, res) => {
   try {
     const user = req.user;
     const { password } = req.body;
