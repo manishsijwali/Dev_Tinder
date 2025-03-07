@@ -16,7 +16,9 @@ requestRouter.post(
 
       // Check if the user is trying to send a request to themselves
       if (fromUserId.toString() === toUserId.toString()) {
-        return res.status(400).json({ message: "You cannot send a request to yourself." });
+        return res
+          .status(400)
+          .json({ message: "You cannot send a request to yourself." });
       }
 
       const allowedStatus = ["ignored", "interested"];
@@ -51,13 +53,13 @@ requestRouter.post(
         status,
       });
 
-      await data.save(); // Ensure data is saved before responding
+      await data.save();
 
       res.json({
-        message: `${req.user.firstName || req.user.lastName}, your request has been sent successfully.`,
+        message: `${req.user.firstName + " is " + status + toUser.firstName}.`,
       });
     } catch (error) {
-      res.status(500).send("ERROR: " + error.message); // Use status 500 for internal server errors
+      res.status(400).send("ERROR: " + error.message);
     }
   }
 );
