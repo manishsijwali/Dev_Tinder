@@ -1,1 +1,9 @@
-@import "tailwindcss";
+/* tailwind.css or your custom stylesheet */
+
+/* Import Tailwind CSS (ensure Tailwind is correctly set up in your build process) */
+@import 'tailwindcss';
+@plugin "daisyui";
+/* Custom body styles */
+body{
+    background: gainsboro;
+}
