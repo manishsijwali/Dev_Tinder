@@ -5,6 +5,7 @@ import Hero from "./components/Hero";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
+import Profile from "./components/EditProfile";
 
 const router = createBrowserRouter([
   {
@@ -18,21 +19,16 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/login",
-    element: (
-      <>
-        <Login />
-      </>
-    ),
+    path: "/profile",
+    element: <Profile />,
   },
   {
-    path:"/signup",
-    element:(
-      <>
-      <SignUp/>
-      </>
-    )
-
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/signup",
+    element: <SignUp />,
   },
 ]);
 

@@ -1,17 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
 const Navbar = () => {
   const accepted = () => toast.success("Request Accepted!");
   const rejected = () => toast.error("Request Rejected!");
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar shadow-sm">
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl">Dev Tinder</a>
+        <a className="btn btn-ghost  text-xl">Dev Tinder</a>
       </div>
       <div className="flex-none ">
         <div className="dropdown dropdown-end mr-6">
-          <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
+          <div tabIndex={0} role="button" className="btn btn-ghost  rounded-2xl pr-2 pt-2 btn-square">
             <div className="indicator">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -22,12 +23,12 @@ const Navbar = () => {
                 <path d="M5.25 6.375a4.125 4.125 0 1 1 8.25 0 4.125 4.125 0 0 1-8.25 0ZM2.25 19.125a7.125 7.125 0 0 1 14.25 0v.003l-.001.119a.75.75 0 0 1-.363.63 13.067 13.067 0 0 1-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 0 1-.364-.63l-.001-.122ZM18.75 7.5a.75.75 0 0 0-1.5 0v2.25H15a.75.75 0 0 0 0 1.5h2.25v2.25a.75.75 0 0 0 1.5 0v-2.25H21a.75.75 0 0 0 0-1.5h-2.25V7.5Z" />
               </svg>
 
-              <span className=" indicator-item">8</span>
+              <span className=" indicator-item">100</span>
             </div>
           </div>
           <div
             tabIndex={0}
-            className="card card-compact dropdown-content bg-base-100 z-1 mt-6 w-96 p-4 shadow h-96 overflow-y-auto"
+            className="card card-compact dropdown-content bg-base-100 z-1 mt-6  p-4 shadow h-96 overflow-y-auto"
           >
             <div className="flex items-center justify-between my-4 ">
               <img
@@ -39,10 +40,16 @@ const Navbar = () => {
                 <h2 className="">Name : Manish</h2>
                 <p className="text-sm">Skills : HTML5 , CSS3, JavaScript</p>
                 <div className="flex items-center justify-around mt-2">
-                  <button className="bg-red-400 text-white px-2 py-1 rounded hover:bg-red-500" onClick={rejected}>
+                  <button
+                    className="bg-red-400 text-white px-2 py-1 rounded hover:bg-red-500"
+                    onClick={rejected}
+                  >
                     Rejected
                   </button>
-                  <button className="bg-blue-400 text-white px-2 py-1 rounded hover:bg-blue-500" onClick={accepted}>
+                  <button
+                    className="bg-blue-400 text-white px-2 py-1 rounded hover:bg-blue-500"
+                    onClick={accepted}
+                  >
                     Accepted
                   </button>
                 </div>
@@ -68,13 +75,10 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             <li>
-              <a className="justify-between">
+              <Link to={"/Profile"} className="justify-between">
                 Profile
                 <span className="badge">New</span>
-              </a>
-            </li>
-            <li>
-              <a>Settings</a>
+              </Link>
             </li>
             <li>
               <a>Logout</a>
@@ -82,8 +86,8 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-       {/* ToastContainer should be placed outside the button */}
-       <ToastContainer position="top-center" theme="dark" autoClose={1000}/>
+      {/* ToastContainer should be placed outside the button */}
+      <ToastContainer position="top-center" theme="dark" autoClose={1000} />
     </div>
   );
 };
