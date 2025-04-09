@@ -13,7 +13,7 @@ createRoot(document.getElementById("root")).render(
 
 export const instance = axios.create({
   baseURL: "http://localhost:7777", 
+  withCredentials: true,
   timeout: 1000,
   headers: { "X-Custom-Header": "foobar" },
 });
-

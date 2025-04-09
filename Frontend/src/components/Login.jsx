@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { loginuser } from "../Store/UserSlice";
+import { loginuser } from "../Slice/UserSlice";
 
 const Login = () => {
   const dispatch = useDispatch();

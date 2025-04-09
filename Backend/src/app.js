@@ -10,7 +10,12 @@ const requestRouter = require("./router/request");
 const userRouter = require("./router/user");
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:5173", // Your frontend URL
+    credentials: true, // Allows browser to send/receive cookies
+  })
+);
 
 //for post the req to db
 app.use("/", authRouter);

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { signupuser } from "../Store/UserSlice"; 
+import { signupuser } from "../Slice/UserSlice"; 
 
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ const SignUp = () => {
     console.log(result);
     
     if (signupuser.fulfilled.match(result)) {
-      navigate("/");
+      navigate("/login");
     }
   };
 

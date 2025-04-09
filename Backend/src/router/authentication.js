@@ -47,6 +47,7 @@ authRouter.post("/login", async (req, res) => {
         expiresIn: "7d",
       });
       res.cookie("token", token, {
+        httpOnly: true, // Prevents JavaScript access
         expires: new Date(Date.now() + 8 * 3600000),
       });
       return res.send("Login Succcessfully");
